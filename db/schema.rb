@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_17_143649) do
+ActiveRecord::Schema.define(version: 2019_12_09_061702) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2019_12_17_143649) do
   create_table "items", force: :cascade do |t|
     t.integer "genre_id", null: false
     t.string "name", default: "", null: false
-    t.text "description", default: "", null: false
-    t.text "image_id", default: "", null: false
+    t.text "description", null: false
+    t.text "image_id", null: false
     t.integer "item_status", null: false
     t.integer "price", null: false
     t.datetime "created_at", null: false

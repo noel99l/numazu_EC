@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LLBS</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+<body class="wf-notosansjapanese">
+    <header class="navbar header">
+        <div class="container">
+            <div class="row">
+                <h3 class="navbar-left"><br>
+                    <%= link_to"LLBS管理者", admin_root_path %>
+                </h3>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to "イベント一覧", admin_events_path %></li>
+                    <li><%= link_to "ユーザー一覧", admin_users_path %></li>
+                    <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class = container >
+        <div class="row">
+        <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>">
+                <%= message %>
+            </div>
+        <% end %>
+        <div class="row">
+    </div>
+    <div class="container min-height" >
+        <div class="row">
+            <%= yield %>
+        </div>
+    </div>
+    <footer>
+        <p class="footer-text">© All rights reserved by noel99l</p>
+    </footer>
+</body>
+</html>

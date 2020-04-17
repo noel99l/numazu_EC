@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+  before_action :baria_user, only: [:edit, :update]
+    def baria_user
+      unless User.find(params[:id]).id == current_user.id
+        redirect_to user_path(current_user)
+      end
+    end
+
   def show
   	@user = User.find(params[:id])
     @main_address = current_user.addresses.find_by(is_main_address: true)
